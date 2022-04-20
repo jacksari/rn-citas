@@ -1,18 +1,14 @@
 import React, {useState} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   Text,
-  useColorScheme,
   View,
   StyleSheet,
   Pressable,
-  Modal
 } from 'react-native';
+import Formulario from './src/components/Formulario';
 
 const App = () => {
-  const [name, setName] = useState('Jack');
   const [openModal, setOpenModal] = useState(false)
 
   const nuevacita = () => {
@@ -31,15 +27,8 @@ const App = () => {
           <Text style={style.btnTextoNuevaCita}>Nueva cita</Text>
         </Pressable>
 
-        <Modal
-          animationType='fade'
-          visible={openModal}
-        >
-          <Text>Desde modal</Text>
-          <Pressable style={style.btnNuevaCita} onPress={() => setOpenModal(false)}>
-          <Text style={style.btnTextoNuevaCita}>Eliminar modal</Text>
-        </Pressable>
-        </Modal>
+
+        <Formulario openModal={openModal} setOpenModal={setOpenModal}/>
 
       </View>
     </SafeAreaView>
